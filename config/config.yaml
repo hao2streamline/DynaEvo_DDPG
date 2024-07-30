@@ -1,0 +1,69 @@
+# config/config.yaml
+
+environment:
+  id: "highway-v0"
+  render_mode: "rgb_array_list"
+  action:
+    type: "ContinuousAction"
+  observation:
+    type: "Kinematics"
+    vehicles_count: 4
+    features: ["x", "y", "vx", "vy"]
+    normalize: False
+  policy_frequency: 15
+  duration: 30
+  offroad_terminal: True
+  reward_speed_range: [80,100]
+  lan_change_reward: -1
+  high_speed_reward: 0.4
+  collision_reward: -100
+  right_line_reward: 0.5
+  normalisze_reward: True
+
+
+mlp_model:
+  input_dim: 18
+  hidden_layers: [40, 30]
+  output_dim: 17
+  learning_rate: 0.001
+
+dyna:
+  planning_steps: 20
+
+ddpg:
+  state_dim: 16
+  action_dim: 2
+  srd_dim: 12
+  hidden_layers: [20, 15]
+  actor_lr: 0.001
+  critic_lr: 0.001
+  gamma: 0.99
+  tau: 0.005
+  batch_size: 20
+
+ea:
+  #必须为4的倍数
+  population_size: 100
+  mutation_rate: 0.1
+  crossover_rate: 0.9
+
+  #hidden_layers: [m, n]
+  # genome_length=(input_size×m+m)+(m×n+n)+(n×output_size+output_size)
+  # Actor_net input 16 output 2
+  # (16*20+20)+(20*15+15)+(15×2+2) =
+  genome_length: 687
+
+mopderl:
+  population_size: 10
+  mutation_rate: 0.1
+  crossover_rate: 0.5
+
+replay_buffer:
+  capacity: 1000
+
+training:
+  num_episodes: 1000
+  num_episodes_initial: 1000
+
+logging:
+  log_dir: "./logs"

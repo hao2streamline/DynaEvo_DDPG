@@ -3,6 +3,7 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
+import copy
 
 class Actor(nn.Module):
     def __init__(self, state_dim, action_dim, hidden_layers):
@@ -17,6 +18,9 @@ class Actor(nn.Module):
         layers.append(nn.Tanh())  # Assuming action space is [-1, 1]
         self.network = nn.Sequential(*layers)
         #self.state_dict = self.state_dict()
+
+        self.optimizer = optim.Adam(self.parameters(), lr=0.001)  # Define optimizer
+        self.target = copy.deepcopy(self)  # Target network
 
     def forward(self, state):
         return self.network(state)

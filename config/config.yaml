@@ -11,9 +11,9 @@ environment:
     features: ["x", "y", "vx", "vy"]
     normalize: False
   policy_frequency: 15
-  duration: 30
+  duration: 100
   offroad_terminal: True
-  reward_speed_range: [80,100]
+  reward_speed_range: [40,100]
   lan_change_reward: -1
   high_speed_reward: 0.4
   collision_reward: -100
@@ -28,7 +28,7 @@ mlp_model:
   learning_rate: 0.001
 
 dyna:
-  planning_steps: 20
+  planning_steps: 100
 
 ddpg:
   state_dim: 16
@@ -39,7 +39,7 @@ ddpg:
   critic_lr: 0.001
   gamma: 0.99
   tau: 0.005
-  batch_size: 20
+  batch_size: 10
 
 ea:
   #必须为4的倍数
@@ -51,19 +51,22 @@ ea:
   # genome_length=(input_size×m+m)+(m×n+n)+(n×output_size+output_size)
   # Actor_net input 16 output 2
   # (16*20+20)+(20*15+15)+(15×2+2) =
-  genome_length: 687
+#  genome_length: 687
 
 mopderl:
-  population_size: 10
+  population_size: 50
   mutation_rate: 0.1
   crossover_rate: 0.5
+  freq: 20
 
 replay_buffer:
-  capacity: 1000
+  capacity: 50
+  buffer_size: 50
+  size: 50
 
 training:
-  num_episodes: 1000
-  num_episodes_initial: 1000
+  num_episodes: 100
+  num_episodes_initial: 30
 
 logging:
   log_dir: "./logs"

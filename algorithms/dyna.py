@@ -26,8 +26,8 @@ class Dyna:
 
     def update_model(self):
         batch_size = self.config["ddpg"]["batch_size"]
-        print('batch_size',batch_size)
-        print('self.real_replay_buffer',len(self.real_replay_buffer))
+        # print('batch_size',batch_size)
+        # print('self.real_replay_buffer',len(self.real_replay_buffer))
         states, srds, actions, rewards, next_states, next_srds, terminated, truncated = self.real_replay_buffer.sample(batch_size)
         next_states_rewards = np.hstack((next_states, rewards.reshape(-1, 1)))
         self.env_model.update(states, actions, srds, next_states_rewards)
@@ -83,7 +83,7 @@ class Dyna:
         combined_batch = [np.concatenate((real, sim), axis=0) for real, sim in zip(real_batch, sim_batch)]
         # print('combined_batch',combined_batch)
         states, srds, actions, rewards, next_states, next_srds, terminated, truncated = combined_batch
-        print('next_states', next_states)
+        # print('next_states', next_states)
 
 
         # print('actions', actions)
@@ -96,7 +96,7 @@ class Dyna:
         srds = srds.reshape(srds.shape[0], -1)
         #print('srds', srds)
         states_combined = np.concatenate((states, srds), axis=1)
-        print('states_combined',states_combined)
+        #print('states_combined',states_combined)
         states_combined = torch.FloatTensor(states_combined).to(self.device)
 
         #states = torch.FloatTensor(states).to(self.device)
@@ -110,8 +110,8 @@ class Dyna:
         # Update Critic Network
         with torch.no_grad():
             next_actions = self.target_actor(states_combined)
-            print('next_states',next_states)
-            print('next_actions', next_actions)
+            # print('next_states',next_states)
+            # print('next_actions', next_actions)
 
             target_q = self.target_critic(next_states, next_actions)
             #存疑
@@ -151,17 +151,17 @@ class Dyna:
 
         # Evaluate fitness of the population
         fitness_scores = self.evaluate_population(population)
-        print('fitness_scores',fitness_scores)
+        # print('fitness_scores',fitness_scores)
 
         # Select the best individuals
         selected_indices = np.argsort(fitness_scores)[-self.config["ea"]["population_size"] // 2:]
-        print('selected_indices', selected_indices)
+        # print('selected_indices', selected_indices)
         selected_population = population[selected_indices]
-        print('selected_population', selected_population)
+        # print('selected_population', selected_population)
 
         # Generate new population through crossover and mutation
         new_population = []
-        print('len(selected_population)',len(selected_population))
+        # print('len(selected_population)',len(selected_population))
         for i in range(0, len(selected_population), 2):
             #parent1, parent2 = selected_population[i], selected_population[i + 1]
             parent1 = selected_population[i]
@@ -201,7 +201,7 @@ class Dyna:
 
             state, srd, reward, terminated, truncated = self.env.step(action)
             total_reward += reward
-            print('total_reward',total_reward)
+            # print('total_reward',total_reward)
         return total_reward
 
     def crossover(self, parent1, parent2):

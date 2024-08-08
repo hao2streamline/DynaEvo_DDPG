@@ -49,7 +49,7 @@ class ReplayBuffer:
     def check_data(self,batch):
         for index, i in enumerate(batch):
             if len(i) == 8:
-                print('get!/n/n')
+                #print('get!/n/n')
                 new_i0 = i[0][0]
                 new_item = (new_i0,) + i[2:]
                 #print('\nnew_item', new_item)

@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="88042da2-9950-4ec2-9f50-5437ac15d197" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/dyna.py" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/dyna.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithms/mopderl.py" beforeDir="false" afterPath="$PROJECT_DIR$/algorithms/mopderl.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/envs/highway_env_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/envs/highway_env_wrapper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/actor.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/actor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/critic.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/critic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/replay_buffer.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/replay_buffer.py" afterDir="false" />
-    </list>
+    <list default="true" id="88042da2-9950-4ec2-9f50-5437ac15d197" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

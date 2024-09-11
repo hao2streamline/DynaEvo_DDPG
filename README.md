@@ -3,6 +3,7 @@
 **Author**: Hao Liu (HL791@exeter.ac.uk)
 
 ## Overview
+![Dyna_MOPDERL Framework](https://github.com/user-attachments/assets/d1bf4fe1-9d26-46f7-9478-209f0f40e285)
 
 This repository implements a model-based evolutionary multi-objective reinforcement learning (MOPDERL) framework designed for continuous control tasks. The primary goal of this project is to integrate state transition models with evolutionary multi-objective reinforcement learning to solve problems with continuous action spaces, specifically for autonomous driving tasks.
 
@@ -23,15 +24,19 @@ The project explores how to integrate state transition models into evolutionary 
 ### MOPDERL Framework
 
 1. **Warm-up Phase**:
+   ![Warm-up stage of MODPERL framework](https://github.com/user-attachments/assets/eedaff61-2b45-44d4-83bb-cda57aefe4b9)
+
    - **Scalarized Weights**: Converts the reward vector into scalar values using fixed weights throughout the training. The number of weights corresponds to the number of objectives.
    - **DDPG Agent Initialization**: Multiple DDPG-based RL agents are initialized, each corresponding to a different scalarization weight. Each agent consists of actors, critics, and their target networks.
    - **Population Formation**: Sub-populations of RL agents are formed, with each agent optimized based on its scalarized reward.
    
-2. **Evolutionary Stage**:
+3. **Evolutionary Stage**:
+   ![Multi-objective evolution stage](https://github.com/user-attachments/assets/b0bd0886-c38f-4b27-9eb6-0ae56bb4a6e8)
+
    - **NSGA-II Selection**: A multi-objective optimization technique is applied to evolve the population. Sub-populations are merged, and NSGA-II selection is used to generate new individuals.
    - **Distilled Crossover & Mutation**: New individuals are created via crossover and mutation, ensuring diversity and robust exploration of the action space.
 
-3. **Environment Model (MLP) Update**:
+5. **Environment Model (MLP) Update**:
    - The MLP environment model is updated using real interaction data. Mean Squared Error (MSE) is used to calculate the next state and reward prediction errors.
    - Both real and simulated experiences are used to update the actor and critic networks in the DDPG framework.
 

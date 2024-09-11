@@ -100,19 +100,3 @@ The project has been tested over several episodes in the HighwayEnv simulation. 
 
 - **Inverse Reinforcement Learning (IRL)**: To automatically learn reward functions from expert demonstrations, potentially leading to more effective policies.
 - **Model Uncertainty**: Incorporating Bayesian Neural Networks to improve the quality of simulated experiences by accounting for uncertainty in the environment model.
-
----
-
-## Acknowledgements
-
-This project was developed as part of the MSc in Data Science with Artificial Intelligence program at the University of Exeter.
-
----
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
-
----
-
-This README is designed to provide a concise but detailed overview of your project, including its goals, methodology, and how to get started with it on GitHub.
